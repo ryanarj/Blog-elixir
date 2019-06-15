@@ -3,9 +3,11 @@ defmodule Blog.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    get "/", PageController, :index
   end
 
   scope "/api", Blog do
     pipe_through :api
+    get "/", PageController, :index
   end
 end
